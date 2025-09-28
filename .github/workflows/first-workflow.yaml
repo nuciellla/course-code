@@ -1,12 +1,12 @@
-name: First Workflow
+name: First WOrkflow
 on: [push]
 jobs:
-    run-shell-commands:
-        runs-on: ubuntu-latest
-        steps:
-            - name: echo a string
-              run: echo "Hello World"
-            - name: Multiline command
-              run: |
-                node -v
-                npm -v
+  run-simple-commands:
+    runs-on: ubuntu-latest
+    steps:
+        - name: echo a string
+          run: echo "Hello World"
+        - name: get versions
+          run: |
+            node -v
+            npm -v
