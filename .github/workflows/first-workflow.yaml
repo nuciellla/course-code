@@ -1,4 +1,4 @@
-name: First WOrkflow
+name: First Workflow
 on: [push]
 jobs:
   run-simple-commands:
@@ -10,3 +10,16 @@ jobs:
           run: |
             node -v
             npm -v
+  parallel-job-macos:
+      runs-on: macos-latest
+      steps:
+          - name: View SW version
+            run: sw_vers
+  dependent-job:
+    runs-on: windows-latest
+    needs: run-simple-commands
+    steps:
+        - name: echo a sring
+          run: Write-Output "Windows string"
+        - name: Error step
+          run: doesnotexists
