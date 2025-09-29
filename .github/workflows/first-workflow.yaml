@@ -1,25 +1,26 @@
 name: First Workflow
 on: [push]
+
 jobs:
   run-simple-commands:
-    runs-on: ubuntu-latest
-    steps:
-        - name: echo a string
+      runs-on: ubuntu-latest
+      steps:
+        - name: print Hello World
           run: echo "Hello World"
-        - name: get versions
+        - name: Run simple commands
           run: |
             node -v
             npm -v
-  parallel-job-macos:
+  parallel_job:
       runs-on: macos-latest
       steps:
-          - name: View SW version
-            run: sw_vers
-  dependent-job:
-    runs-on: windows-latest
-    needs: run-simple-commands
-    steps:
-        - name: echo a sring
-          run: Write-Output "Windows string"
-        - name: Error step
-          run: doesnotexistss
+          - name: Log Software version
+            run: sfw_vers
+  dependent_job:
+      runs-on: windows-latest
+      needs: run-simple-commands
+      steps:
+          - name: Log Software version
+            run: Write-Output version
+          - name: Error bit
+            run: doesnot existss
