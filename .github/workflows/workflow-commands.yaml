@@ -1,27 +1,26 @@
-name: Workflow Commands
+name: Workflow commands
 on: [push]
 
 jobs:
-  testing-wf-commands:
-    runs-on: ubuntu-latest
-    steps:
-        - name: Set error message
-          run: echo "::error::Missing semicolon"
-        - name: Set error message with param
-          run: echo "::error title=Error title,file=app.js,line=2,endLine=3,col=4,endColumn=7::Missing semicolon"
-        - name: Set debug message with param
-          run: echo "::debug title=Debug title,file=app.js,line=2,endLine=3,col=4,endColumn=7::Missing semicolon"
-        - name: Set warning message with param
-          run: echo "::warning title=Warning title,file=app.js,line=2,endLine=3,col=4,endColumn=7::Missing semicolon"
-        - name: Set notice message with param
-          run: echo "::notice title=Notice title,file=app.js,line=2,endLine=3,col=4,endColumn=7::Missing semicolon"
-        - name: Add group message
-          run: |
-           echo "::group::My Group"
-           echo "Inside group"
-           echo "::endgroup::"
-        - name: add mask message
-          run: echo "::add-mask::Set secret"
-        - name: log secret
-          run: echo "Set secret"
-        
+    workflow-commands:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Error message
+              run: echo "::error::Missing argument"
+            - name: error with params
+              run: echo "::error title=Error Title,file=app.js,line=2,endLine=3,col=7,endColumn=11"
+            - name: warning with params
+              run: echo "::warning title=Warning Title,file=app.js,line=2,endLine=3,col=7,endColumn=11"
+            - name: notice with params
+              run: echo "::notice title=Notice Title,file=app.js,line=2,endLine=3,col=7,endColumn=11"
+            - name: debug with params
+              run: echo "::debug title=Debug Title,file=app.js,line=2,endLine=3,col=7,endColumn=11"
+            - name: Group step
+              run: |
+               echo "::group::New Group"
+               Inside group
+               echo "::endgroup::"
+            - name: Mask group
+              run: "::add-mask::niniko"
+            - name: Log secret
+              run: echo "niniko"
