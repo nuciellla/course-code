@@ -8,7 +8,7 @@ jobs:
             - name: Error message
               run: echo "::error::Missing argument"
             - name: error with params
-              run: echo "::errortitle=Error Title,file=app.js,line=2,endLine=3,col=7,endColumn=11::Missing argument"
+              run: echo "::error title=Error Title,file=app.js,line=2,endLine=3,col=7,endColumn=11::Missing argument"
             - name: warning with params
               run: echo "::warning title=Warning Title,file=app.js,line=2,endLine=3,col=7,endColumn=11::Missing argument"
             - name: notice with params
