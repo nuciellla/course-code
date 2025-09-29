@@ -15,12 +15,12 @@ jobs:
       runs-on: macos-latest
       steps:
           - name: Log Software version
-            run: sfw_vers
+            run: sw_vers
   dependent_job:
       runs-on: windows-latest
       needs: run-simple-commands
       steps:
           - name: Log Software version
-            run: Write-Output version
+            run: Write-Output Get-ComputerInfo
           - name: Error bit
             run: doesnot existss
