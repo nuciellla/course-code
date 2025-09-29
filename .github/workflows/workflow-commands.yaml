@@ -21,6 +21,6 @@ jobs:
                echo "Inside group"
                echo "::endgroup::"
             - name: Mask group
-              run: "::add-mask::niniko"
+              run: echo "::add-mask::niniko"
             - name: Log secret
               run: echo "niniko"
