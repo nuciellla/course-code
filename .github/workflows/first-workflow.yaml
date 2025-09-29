@@ -22,4 +22,4 @@ jobs:
         - name: echo a sring
           run: Write-Output "Windows string"
         - name: Error step
-          run: doesnotexistss
+          run: doesnotexists
