@@ -1,5 +1,9 @@
 name: Third Workflow
 on: [push]
+defaults:
+    run:
+        shell: bash
+        #working-directory: nini
 jobs:
     display_working_directory:
         runs-on: ubuntu-latest
@@ -11,14 +15,25 @@ jobs:
                 echo $GITHUB_SHA
                 echo $GITHUB_WORKSPACE
                 echo $GITHUB_REPOSITORY
+            - name: change working dir
+              working-directory: /home/runner
+              run: pwd
     display_working_directory_windows:
         runs-on: windows-latest
+        defaults:
+            run:
+                shell: pwsh
         steps:
             - name: Display working directory and list files
               run: |
-                pwd
-                ls
-                echo $GITHUB_SHA
-                echo $GITHUB_WORKSPACE
-                echo $GITHUB_REPOSITORY
+                Get-Location
+                dir
+                echo $env:GITHUB_SHA
+                echo $env:GITHUB_WORKSPACE
+                echo $env:GITHUB_REPOSITORY
+            - name: Display platform
+              shell: python
+              run: |
+                import platform
+                print(platform.processor())
 
