@@ -1,26 +1,26 @@
-name: Workflow commands
+name: Second Workflow
 on: [push]
-
 jobs:
-    workflow-commands:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Error message
-              run: echo "::error::Missing argument"
-            - name: error with params
-              run: echo "::error title=Error Title,file=app.js,line=2,endLine=3,col=7,endColumn=11::Missing argument"
-            - name: warning with params
-              run: echo "::warning title=Warning Title,file=app.js,line=2,endLine=3,col=7,endColumn=11::Missing argument"
-            - name: notice with params
-              run: echo "::notice title=Notice Title,file=app.js,line=2,endLine=3,col=7,endColumn=11::Missing argument"
-            - name: debug with params
-              run: echo "::debug title=Debug Title,file=app.js,line=2,endLine=3,col=7,endColumn=11::Missing argument"
-            - name: Group step
-              run: |
-               echo "::group::New Group"
-               echo "Inside group"
-               echo "::endgroup::"
-            - name: Mask group
-              run: echo "::add-mask::niniko"
-            - name: Log secret
-              run: echo "niniko"
+  workflow_commands:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Error
+        run: echo "::error::Missing Parameters"
+      - name: Error with params
+        run: echo "::error title=Error title,line=2,endLine=3,col=4,endColumn=7::Missing Params"
+      - name: Warning with params
+        run: echo "::warning title=Warning title,line=2,endLine=3,col=4,endColumn=7::Missing Params"
+      - name: Debug with params
+        run: echo "::debug title=Debug title,line=2,endLine=3,col=4,endColumn=7::Missing Params"
+      - name: Notice with params
+        run: echo "::notice title=Notice title,line=2,endLine=3,col=4,endColumn=7::Missing Params"
+      - name: My Second Group
+        run: |
+          echo "::group::My Group"
+          echo "Insie group"
+          echo "::endgroup"
+      - name: Masking
+        run: |
+          echo "::add-mask:niniko"
+      - name: Log mask
+        run: echo "niniko"
