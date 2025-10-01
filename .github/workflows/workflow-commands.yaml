@@ -21,6 +21,6 @@ jobs:
           echo "::endgroup"
       - name: Masking
         run: |
-          echo "::add-mask:niniko"
+          echo "::add-mask::niniko"
       - name: Log mask
         run: echo "niniko"
