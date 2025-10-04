@@ -1,0 +1,13 @@
+name: Fifth Workflow
+on: [push]
+jobs:
+    hello-world-print:
+        runs-on: ubuntu-latest
+        steps:
+            - name: do hello woorld
+              uses: actions/hello-world-javascript-action@f6166a81d688689938e4b09a49cfb5a90f70cc70
+              with:
+                who-to-greet: Nuciellla
+              id: greet
+            - name: Log greeting time
+              run: echo "Time!! ${{ steps.greet.outputs.time }}"
